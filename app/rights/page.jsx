@@ -92,6 +92,13 @@ export default function KnowYourRights() {
   const L = uiLabels[language];
   const categories = rightsCategories[language];
 
+  function handleLanguageChange(lang) {
+    setLanguage(lang);
+    setSelected(null);
+    setAnswer('');
+    setQuestion('');
+  }
+
   async function askRightsQuestion() {
     if (!question.trim()) return;
     setLoading(true);
@@ -129,7 +136,7 @@ export default function KnowYourRights() {
             <h1 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '36px', fontWeight: 600, color: 'var(--off-white)', marginBottom: '8px'}}>{L.title}</h1>
             <p style={{fontSize: '14px', color: 'var(--text-muted)', fontWeight: 300}}>{L.subtitle}</p>
           </div>
-          <LanguageToggle language={language} setLanguage={setLanguage} />
+          <LanguageToggle language={language} setLanguage={handleLanguageChange} />
         </div>
 
         {!selected && (
