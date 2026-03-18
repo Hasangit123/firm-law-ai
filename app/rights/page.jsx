@@ -13,6 +13,51 @@ const rightsCategories = [
   { id: 'rti', icon: '📋', title: 'Right to Information', law: 'Right to Information Act, 2005', rights: ['Any citizen can ask information from any government department', 'Government must reply within 30 days of application', 'Fee is only ₹10 for filing RTI application', 'If denied, appeal to First Appellate Authority within 30 days', 'Second appeal to Central/State Information Commission', 'Public Information Officer can be penalised for non-compliance'] },
 ];
 
+const uiLabels = {
+  english: {
+    title: '✊ Know Your Rights',
+    subtitle: 'Every Indian citizen has rights protected by law.',
+    back: '← Back to categories',
+    askTitle: 'Ask AI about your',
+    askPlaceholder: 'Ask a specific question about your',
+    askButton: '🔍 Ask Firm Law AI',
+    askLoading: '⏳ Getting answer...',
+    lookingUp: 'Looking up your rights...',
+    answerTitle: 'Firm Law AI Answer',
+    copy: '📋 Copy',
+    copied: '✅ Copied!',
+    disclaimer: '⚠️ This is general legal information only. For your specific situation, please consult a qualified advocate.',
+  },
+  hindi: {
+    title: '✊ अपने अधिकार जानें',
+    subtitle: 'हर भारतीय नागरिक के अधिकार कानून द्वारा संरक्षित हैं।',
+    back: '← श्रेणियों पर वापस जाएं',
+    askTitle: 'AI से पूछें अपने',
+    askPlaceholder: 'अपने अधिकारों के बारे में कोई सवाल पूछें',
+    askButton: '🔍 Firm Law AI से पूछें',
+    askLoading: '⏳ जवाब मिल रहा है...',
+    lookingUp: 'आपके अधिकार खोजे जा रहे हैं...',
+    answerTitle: 'Firm Law AI का जवाब',
+    copy: '📋 कॉपी करें',
+    copied: '✅ कॉपी हो गया!',
+    disclaimer: '⚠️ यह केवल सामान्य कानूनी जानकारी है। अपनी विशेष स्थिति के लिए किसी वकील से सलाह लें।',
+  },
+  telugu: {
+    title: '✊ మీ హక్కులు తెలుసుకోండి',
+    subtitle: 'ప్రతి భారతీయ పౌరునికి చట్టం ద్వారా రక్షించబడిన హక్కులు ఉన్నాయి.',
+    back: '← వర్గాలకు తిరిగి వెళ్ళండి',
+    askTitle: 'AI ని అడగండి మీ',
+    askPlaceholder: 'మీ హక్కుల గురించి ప్రశ్న అడగండి',
+    askButton: '🔍 Firm Law AI అడగండి',
+    askLoading: '⏳ సమాధానం వస్తోంది...',
+    lookingUp: 'మీ హక్కులు వెతుకుతున్నాం...',
+    answerTitle: 'Firm Law AI సమాధానం',
+    copy: '📋 కాపీ చేయండి',
+    copied: '✅ కాపీ అయింది!',
+    disclaimer: '⚠️ ఇది సాధారణ చట్టపరమైన సమాచారం మాత్రమే. మీ నిర్దిష్ట పరిస్థితి కోసం అర్హత కలిగిన న్యాయవాదిని సంప్రదించండి.',
+  },
+};
+
 export default function KnowYourRights() {
   const [selected, setSelected] = useState(null);
   const [question, setQuestion] = useState('');
@@ -21,6 +66,8 @@ export default function KnowYourRights() {
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
   const [language, setLanguage] = useState('english');
+
+  const L = uiLabels[language];
 
   async function askRightsQuestion() {
     if (!question.trim()) return;
@@ -56,8 +103,8 @@ export default function KnowYourRights() {
 
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '32px', flexWrap: 'wrap', gap: '16px'}}>
           <div>
-            <h1 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '36px', fontWeight: 600, color: 'var(--off-white)', marginBottom: '8px'}}>✊ Know Your Rights</h1>
-            <p style={{fontSize: '14px', color: 'var(--text-muted)', fontWeight: 300}}>Every Indian citizen has rights protected by law.</p>
+            <h1 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '36px', fontWeight: 600, color: 'var(--off-white)', marginBottom: '8px'}}>{L.title}</h1>
+            <p style={{fontSize: '14px', color: 'var(--text-muted)', fontWeight: 300}}>{L.subtitle}</p>
           </div>
           <LanguageToggle language={language} setLanguage={setLanguage} />
         </div>
@@ -78,7 +125,7 @@ export default function KnowYourRights() {
           <div>
             <button onClick={() => { setSelected(null); setAnswer(''); setQuestion(''); }}
               style={{fontSize: '13px', color: 'var(--gold)', background: 'transparent', border: 'none', cursor: 'pointer', marginBottom: '24px', fontFamily: 'Outfit, sans-serif'}}>
-              ← Back to categories
+              {L.back}
             </button>
 
             <div style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '16px', padding: '28px', marginBottom: '20px'}}>
@@ -100,21 +147,21 @@ export default function KnowYourRights() {
             </div>
 
             <div style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px', marginBottom: '20px'}}>
-              <h3 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 600, color: 'var(--off-white)', marginBottom: '16px'}}>🤖 Ask AI about your {selected.title}</h3>
+              <h3 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 600, color: 'var(--off-white)', marginBottom: '16px'}}>🤖 {L.askTitle} {selected.title}</h3>
               <textarea value={question} onChange={e => setQuestion(e.target.value)}
-                placeholder={`Ask a specific question about your ${selected.title.toLowerCase()}...`}
+                placeholder={`${L.askPlaceholder} ${selected.title.toLowerCase()}...`}
                 style={{width: '100%', minHeight: '80px', background: 'transparent', border: 'none', outline: 'none', resize: 'none', fontSize: '14px', color: 'var(--off-white)', fontFamily: 'Outfit, sans-serif', lineHeight: 1.7}}
               />
               <button onClick={askRightsQuestion} disabled={loading || !question.trim()}
                 style={{marginTop: '16px', width: '100%', padding: '12px', background: loading || !question.trim() ? 'rgba(201,168,76,0.3)' : 'linear-gradient(135deg, var(--gold), var(--gold-dim))', color: 'var(--black)', border: 'none', borderRadius: '8px', fontSize: '13px', fontWeight: 600, cursor: loading || !question.trim() ? 'not-allowed' : 'pointer', fontFamily: 'Outfit, sans-serif'}}>
-                {loading ? '⏳ Getting answer...' : '🔍 Ask Firm Law AI'}
+                {loading ? L.askLoading : L.askButton}
               </button>
             </div>
 
             {loading && (
               <div style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '16px', padding: '48px', textAlign: 'center'}}>
                 <div style={{width: '48px', height: '48px', border: '3px solid rgba(201,168,76,0.2)', borderTop: '3px solid var(--gold)', borderRadius: '50%', margin: '0 auto 20px', animation: 'spin 1s linear infinite'}}/>
-                <p style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '20px', color: 'var(--off-white)', marginBottom: '6px'}}>Looking up your rights...</p>
+                <p style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '20px', color: 'var(--off-white)', marginBottom: '6px'}}>{L.lookingUp}</p>
                 <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
               </div>
             )}
@@ -128,17 +175,15 @@ export default function KnowYourRights() {
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', paddingBottom: '16px', borderBottom: '1px solid var(--border)'}}>
                   <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                     <div style={{width: '32px', height: '32px', background: 'linear-gradient(135deg, var(--gold), var(--gold-dim))', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px'}}>⚖️</div>
-                    <span style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 600, color: 'var(--off-white)'}}>Firm Law AI Answer</span>
+                    <span style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 600, color: 'var(--off-white)'}}>{L.answerTitle}</span>
                   </div>
                   <button onClick={copyAnswer}
                     style={{fontSize: '12px', padding: '8px 16px', borderRadius: '8px', background: copied ? 'rgba(201,168,76,0.2)' : 'transparent', border: '1px solid rgba(201,168,76,0.3)', color: 'var(--gold)', cursor: 'pointer', fontFamily: 'Outfit, sans-serif'}}>
-                    {copied ? '✅ Copied!' : '📋 Copy'}
+                    {copied ? L.copied : L.copy}
                   </button>
                 </div>
                 <div style={{fontSize: '14px', lineHeight: 1.8, color: 'var(--text-muted)', whiteSpace: 'pre-wrap', fontWeight: 300}}>{answer}</div>
-                <div style={{marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--border)', fontSize: '12px', color: 'var(--text-dim)'}}>
-                  ⚠️ This is general legal information only. For your specific situation, please consult a qualified advocate.
-                </div>
+                <div style={{marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--border)', fontSize: '12px', color: 'var(--text-dim)'}}>{L.disclaimer}</div>
               </div>
             )}
           </div>
