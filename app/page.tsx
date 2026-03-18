@@ -84,9 +84,9 @@ export default function Home() {
           <div style={{display: 'flex', justifyContent: 'center', marginBottom: '28px', position: 'relative'}}>
             <div style={{display: 'flex', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: '10px', padding: '4px', gap: '4px'}}>
               {[
-                { key: 'english', flag: '🇬🇧', label: 'English' },
-                { key: 'hindi', flag: '🇮🇳', label: 'हिंदी' },
-                { key: 'telugu', flag: '🌟', label: 'తెలుగు' },
+                { key: 'english' as const, flag: '🇬🇧', label: 'English' },
+                { key: 'hindi' as const, flag: '🇮🇳', label: 'हिंदी' },
+                { key: 'telugu' as const, flag: '🌟', label: 'తెలుగు' },
               ].map(lang => (
                 <button key={lang.key} onClick={() => setLanguage(lang.key)}
                   style={{padding: '8px 16px', borderRadius: '7px', border: 'none', fontSize: '12px', fontWeight: 600, cursor: 'pointer', fontFamily: 'Outfit, sans-serif', transition: 'all 0.2s', background: language === lang.key ? 'linear-gradient(135deg, #c9a84c, #8a6f2e)' : 'transparent', color: language === lang.key ? '#080808' : '#5a5a5a'}}>
