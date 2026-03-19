@@ -83,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   useEffect(() => {
     document.body.style.background = T.bg;
+    document.body.style.color = T.text;
   }, [darkMode]);
 
   return (
