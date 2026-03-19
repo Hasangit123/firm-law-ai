@@ -6,103 +6,103 @@ const lawsData = [
   {
     category: 'Criminal Laws', icon: '⚖️',
     laws: [
-      { name: 'Indian Penal Code, 1860', short: 'IPC', desc: 'Main criminal code of India covering all major offences', url: 'https://legislative.gov.in/sites/default/files/A1860-45.pdf' },
-      { name: 'Code of Criminal Procedure, 1973', short: 'CrPC', desc: 'Procedure for administration of criminal law in India', url: 'https://legislative.gov.in/sites/default/files/A1974-2.pdf' },
-      { name: 'Indian Evidence Act, 1872', short: 'IEA', desc: 'Rules regarding admissibility of evidence in courts', url: 'https://legislative.gov.in/sites/default/files/A1872-1.pdf' },
-      { name: 'Prevention of Corruption Act, 1988', short: 'PCA', desc: 'Law against corruption by public servants', url: 'https://legislative.gov.in/sites/default/files/A1988-49.pdf' },
-      { name: 'NDPS Act, 1985', short: 'NDPS', desc: 'Narcotic Drugs and Psychotropic Substances Act', url: 'https://legislative.gov.in/sites/default/files/A1985-61.pdf' },
-      { name: 'POCSO Act, 2012', short: 'POCSO', desc: 'Protection of children from sexual abuse', url: 'https://legislative.gov.in/sites/default/files/A2012-32.pdf' },
+      { name: 'Indian Penal Code, 1860', short: 'IPC', desc: 'Main criminal code of India covering all major offences', url: 'https://www.google.com/search?q=Indian+Penal+Code+1860+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Code of Criminal Procedure, 1973', short: 'CrPC', desc: 'Procedure for administration of criminal law in India', url: 'https://www.google.com/search?q=Code+of+Criminal+Procedure+1973+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Indian Evidence Act, 1872', short: 'IEA', desc: 'Rules regarding admissibility of evidence in courts', url: 'https://www.google.com/search?q=Indian+Evidence+Act+1872+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Prevention of Corruption Act, 1988', short: 'PCA', desc: 'Law against corruption by public servants', url: 'https://www.google.com/search?q=Prevention+of+Corruption+Act+1988+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'NDPS Act, 1985', short: 'NDPS', desc: 'Narcotic Drugs and Psychotropic Substances Act', url: 'https://www.google.com/search?q=NDPS+Act+1985+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'POCSO Act, 2012', short: 'POCSO', desc: 'Protection of children from sexual abuse', url: 'https://www.google.com/search?q=POCSO+Act+2012+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Constitutional Laws', icon: '🏛️',
     laws: [
-      { name: 'Constitution of India, 1950', short: 'COI', desc: 'Supreme law of India — Fundamental Rights, DPSP, Duties', url: 'https://legislative.gov.in/constitution-of-india/' },
-      { name: 'Right to Information Act, 2005', short: 'RTI', desc: 'Citizens right to access information from government', url: 'https://legislative.gov.in/sites/default/files/A2005-22.pdf' },
-      { name: 'Protection of Human Rights Act, 1993', short: 'PHRA', desc: 'Establishment of National Human Rights Commission', url: 'https://legislative.gov.in/sites/default/files/A1994-10.pdf' },
-      { name: 'SC/ST (Prevention of Atrocities) Act, 1989', short: 'SC/ST Act', desc: 'Prevention of atrocities against SC/ST communities', url: 'https://legislative.gov.in/sites/default/files/A1989-33.pdf' },
+      { name: 'Constitution of India, 1950', short: 'COI', desc: 'Supreme law of India — Fundamental Rights, DPSP, Duties', url: 'https://www.google.com/search?q=Constitution+of+India+1950+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Right to Information Act, 2005', short: 'RTI', desc: 'Citizens right to access information from government', url: 'https://www.google.com/search?q=Right+to+Information+Act+2005+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Protection of Human Rights Act, 1993', short: 'PHRA', desc: 'Establishment of National Human Rights Commission', url: 'https://www.google.com/search?q=Protection+of+Human+Rights+Act+1993+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'SC/ST (Prevention of Atrocities) Act, 1989', short: 'SC/ST Act', desc: 'Prevention of atrocities against SC/ST communities', url: 'https://www.google.com/search?q=SC+ST+Prevention+of+Atrocities+Act+1989+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Family Laws', icon: '👨‍👩‍👧',
     laws: [
-      { name: 'Hindu Marriage Act, 1955', short: 'HMA', desc: 'Marriage, divorce, maintenance for Hindus', url: 'https://legislative.gov.in/sites/default/files/A1955-25.pdf' },
-      { name: 'Hindu Succession Act, 1956', short: 'HSA', desc: 'Inheritance and succession of property for Hindus', url: 'https://legislative.gov.in/sites/default/files/A1956-30.pdf' },
-      { name: 'Hindu Adoption and Maintenance Act, 1956', short: 'HAMA', desc: 'Adoption and maintenance rights for Hindus', url: 'https://legislative.gov.in/sites/default/files/A1956-78.pdf' },
-      { name: 'Special Marriage Act, 1954', short: 'SMA', desc: 'Civil marriage for all religions', url: 'https://legislative.gov.in/sites/default/files/A1954-43.pdf' },
-      { name: 'Domestic Violence Act, 2005', short: 'PWDVA', desc: 'Protection of women from domestic violence', url: 'https://legislative.gov.in/sites/default/files/A2005-43.pdf' },
-      { name: 'Dowry Prohibition Act, 1961', short: 'DPA', desc: 'Prohibition of giving and taking dowry', url: 'https://legislative.gov.in/sites/default/files/A1961-28.pdf' },
-      { name: 'Muslim Personal Law (Shariat) Application Act, 1937', short: 'MPLSA', desc: 'Application of Muslim personal law in India', url: 'https://legislative.gov.in/sites/default/files/A1937-26.pdf' },
-      { name: 'Guardianship and Wards Act, 1890', short: 'GWA', desc: 'Guardianship of minor children', url: 'https://legislative.gov.in/sites/default/files/A1890-8.pdf' },
+      { name: 'Hindu Marriage Act, 1955', short: 'HMA', desc: 'Marriage, divorce, maintenance for Hindus', url: 'https://www.google.com/search?q=Hindu+Marriage+Act+1955+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Hindu Succession Act, 1956', short: 'HSA', desc: 'Inheritance and succession of property for Hindus', url: 'https://www.google.com/search?q=Hindu+Succession+Act+1956+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Hindu Adoption and Maintenance Act, 1956', short: 'HAMA', desc: 'Adoption and maintenance rights for Hindus', url: 'https://www.google.com/search?q=Hindu+Adoption+and+Maintenance+Act+1956+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Special Marriage Act, 1954', short: 'SMA', desc: 'Civil marriage for all religions', url: 'https://www.google.com/search?q=Special+Marriage+Act+1954+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Domestic Violence Act, 2005', short: 'PWDVA', desc: 'Protection of women from domestic violence', url: 'https://www.google.com/search?q=Protection+of+Women+from+Domestic+Violence+Act+2005+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Dowry Prohibition Act, 1961', short: 'DPA', desc: 'Prohibition of giving and taking dowry', url: 'https://www.google.com/search?q=Dowry+Prohibition+Act+1961+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Muslim Personal Law (Shariat) Application Act, 1937', short: 'MPLSA', desc: 'Application of Muslim personal law in India', url: 'https://www.google.com/search?q=Muslim+Personal+Law+Shariat+Application+Act+1937+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Guardianship and Wards Act, 1890', short: 'GWA', desc: 'Guardianship of minor children', url: 'https://www.google.com/search?q=Guardianship+and+Wards+Act+1890+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Civil Laws', icon: '📜',
     laws: [
-      { name: 'Code of Civil Procedure, 1908', short: 'CPC', desc: 'Procedure for civil courts in India', url: 'https://legislative.gov.in/sites/default/files/A1908-5.pdf' },
-      { name: 'Indian Contract Act, 1872', short: 'ICA', desc: 'Law governing contracts and agreements', url: 'https://legislative.gov.in/sites/default/files/A1872-9.pdf' },
-      { name: 'Transfer of Property Act, 1882', short: 'TPA', desc: 'Law regarding transfer of property', url: 'https://legislative.gov.in/sites/default/files/A1882-4.pdf' },
-      { name: 'Limitation Act, 1963', short: 'LA', desc: 'Time limits for filing suits and appeals', url: 'https://legislative.gov.in/sites/default/files/A1963-36.pdf' },
-      { name: 'Specific Relief Act, 1963', short: 'SRA', desc: 'Relief for breach of contract and property disputes', url: 'https://legislative.gov.in/sites/default/files/A1963-47.pdf' },
-      { name: 'Registration Act, 1908', short: 'RA', desc: 'Registration of documents and properties', url: 'https://legislative.gov.in/sites/default/files/A1908-16.pdf' },
+      { name: 'Code of Civil Procedure, 1908', short: 'CPC', desc: 'Procedure for civil courts in India', url: 'https://www.google.com/search?q=Code+of+Civil+Procedure+1908+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Indian Contract Act, 1872', short: 'ICA', desc: 'Law governing contracts and agreements', url: 'https://www.google.com/search?q=Indian+Contract+Act+1872+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Transfer of Property Act, 1882', short: 'TPA', desc: 'Law regarding transfer of property', url: 'https://www.google.com/search?q=Transfer+of+Property+Act+1882+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Limitation Act, 1963', short: 'LA', desc: 'Time limits for filing suits and appeals', url: 'https://www.google.com/search?q=Limitation+Act+1963+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Specific Relief Act, 1963', short: 'SRA', desc: 'Relief for breach of contract and property disputes', url: 'https://www.google.com/search?q=Specific+Relief+Act+1963+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Registration Act, 1908', short: 'RA', desc: 'Registration of documents and properties', url: 'https://www.google.com/search?q=Registration+Act+1908+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Consumer and Commercial Laws', icon: '🛒',
     laws: [
-      { name: 'Consumer Protection Act, 2019', short: 'CPA', desc: 'Protection of consumer rights and interests', url: 'https://legislative.gov.in/sites/default/files/A2019-35.pdf' },
-      { name: 'Competition Act, 2002', short: 'CA', desc: 'Prevention of monopolies and unfair trade practices', url: 'https://legislative.gov.in/sites/default/files/A2003-12.pdf' },
-      { name: 'Sale of Goods Act, 1930', short: 'SOGA', desc: 'Law governing sale and purchase of goods', url: 'https://legislative.gov.in/sites/default/files/A1930-3.pdf' },
-      { name: 'Companies Act, 2013', short: 'CoA', desc: 'Incorporation and regulation of companies', url: 'https://legislative.gov.in/sites/default/files/A2013-18.pdf' },
-      { name: 'Information Technology Act, 2000', short: 'ITA', desc: 'Cyber laws and electronic commerce in India', url: 'https://legislative.gov.in/sites/default/files/A2000-21.pdf' },
-      { name: 'Insolvency and Bankruptcy Code, 2016', short: 'IBC', desc: 'Resolution of insolvency for companies and individuals', url: 'https://legislative.gov.in/sites/default/files/A2016-31.pdf' },
+      { name: 'Consumer Protection Act, 2019', short: 'CPA', desc: 'Protection of consumer rights and interests', url: 'https://www.google.com/search?q=Consumer+Protection+Act+2019+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Competition Act, 2002', short: 'CA', desc: 'Prevention of monopolies and unfair trade practices', url: 'https://www.google.com/search?q=Competition+Act+2002+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Sale of Goods Act, 1930', short: 'SOGA', desc: 'Law governing sale and purchase of goods', url: 'https://www.google.com/search?q=Sale+of+Goods+Act+1930+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Companies Act, 2013', short: 'CoA', desc: 'Incorporation and regulation of companies', url: 'https://www.google.com/search?q=Companies+Act+2013+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Information Technology Act, 2000', short: 'ITA', desc: 'Cyber laws and electronic commerce in India', url: 'https://www.google.com/search?q=Information+Technology+Act+2000+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Insolvency and Bankruptcy Code, 2016', short: 'IBC', desc: 'Resolution of insolvency for companies and individuals', url: 'https://www.google.com/search?q=Insolvency+and+Bankruptcy+Code+2016+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Labour Laws', icon: '👷',
     laws: [
-      { name: 'Factories Act, 1948', short: 'FA', desc: 'Health, safety and welfare of factory workers', url: 'https://legislative.gov.in/sites/default/files/A1948-63.pdf' },
-      { name: 'Minimum Wages Act, 1948', short: 'MWA', desc: 'Fixing minimum wages for workers', url: 'https://legislative.gov.in/sites/default/files/A1948-11.pdf' },
-      { name: 'Payment of Wages Act, 1936', short: 'PWA', desc: 'Regulation of payment of wages to workers', url: 'https://legislative.gov.in/sites/default/files/A1936-4.pdf' },
-      { name: 'Employees Provident Fund Act, 1952', short: 'EPF', desc: 'Provident fund benefits for employees', url: 'https://www.epfindia.gov.in/site_en/EPFAct.php' },
-      { name: 'Maternity Benefit Act, 1961', short: 'MBA', desc: 'Maternity leave and benefits for women employees', url: 'https://legislative.gov.in/sites/default/files/A1961-53.pdf' },
-      { name: 'POSH Act, 2013', short: 'POSH', desc: 'Prevention of sexual harassment at workplace', url: 'https://legislative.gov.in/sites/default/files/A2013-14.pdf' },
+      { name: 'Factories Act, 1948', short: 'FA', desc: 'Health, safety and welfare of factory workers', url: 'https://www.google.com/search?q=Factories+Act+1948+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Minimum Wages Act, 1948', short: 'MWA', desc: 'Fixing minimum wages for workers', url: 'https://www.google.com/search?q=Minimum+Wages+Act+1948+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Payment of Wages Act, 1936', short: 'PWA', desc: 'Regulation of payment of wages to workers', url: 'https://www.google.com/search?q=Payment+of+Wages+Act+1936+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Employees Provident Fund Act, 1952', short: 'EPF', desc: 'Provident fund benefits for employees', url: 'https://www.google.com/search?q=Employees+Provident+Fund+Act+1952+bare+act+PDF+site:epfindia.gov.in' },
+      { name: 'Maternity Benefit Act, 1961', short: 'MBA', desc: 'Maternity leave and benefits for women employees', url: 'https://www.google.com/search?q=Maternity+Benefit+Act+1961+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'POSH Act, 2013', short: 'POSH', desc: 'Prevention of sexual harassment at workplace', url: 'https://www.google.com/search?q=POSH+Act+2013+Sexual+Harassment+workplace+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Environmental Laws', icon: '🌿',
     laws: [
-      { name: 'Environment Protection Act, 1986', short: 'EPA', desc: 'Protection and improvement of environment', url: 'https://legislative.gov.in/sites/default/files/A1986-29.pdf' },
-      { name: 'Water Prevention and Control of Pollution Act, 1974', short: 'Water Act', desc: 'Prevention of water pollution', url: 'https://legislative.gov.in/sites/default/files/A1974-6.pdf' },
-      { name: 'Air Prevention and Control of Pollution Act, 1981', short: 'Air Act', desc: 'Prevention of air pollution', url: 'https://legislative.gov.in/sites/default/files/A1981-14.pdf' },
-      { name: 'Forest Conservation Act, 1980', short: 'FCA', desc: 'Conservation of forests in India', url: 'https://legislative.gov.in/sites/default/files/A1980-69.pdf' },
-      { name: 'Wildlife Protection Act, 1972', short: 'WPA', desc: 'Protection of wildlife and biodiversity', url: 'https://legislative.gov.in/sites/default/files/A1972-53.pdf' },
-      { name: 'National Green Tribunal Act, 2010', short: 'NGT', desc: 'Tribunal for environmental disputes', url: 'https://legislative.gov.in/sites/default/files/A2010-19.pdf' },
+      { name: 'Environment Protection Act, 1986', short: 'EPA', desc: 'Protection and improvement of environment', url: 'https://www.google.com/search?q=Environment+Protection+Act+1986+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Water Prevention and Control of Pollution Act, 1974', short: 'Water Act', desc: 'Prevention of water pollution', url: 'https://www.google.com/search?q=Water+Prevention+Control+Pollution+Act+1974+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Air Prevention and Control of Pollution Act, 1981', short: 'Air Act', desc: 'Prevention of air pollution', url: 'https://www.google.com/search?q=Air+Prevention+Control+Pollution+Act+1981+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Forest Conservation Act, 1980', short: 'FCA', desc: 'Conservation of forests in India', url: 'https://www.google.com/search?q=Forest+Conservation+Act+1980+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Wildlife Protection Act, 1972', short: 'WPA', desc: 'Protection of wildlife and biodiversity', url: 'https://www.google.com/search?q=Wildlife+Protection+Act+1972+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'National Green Tribunal Act, 2010', short: 'NGT', desc: 'Tribunal for environmental disputes', url: 'https://www.google.com/search?q=National+Green+Tribunal+Act+2010+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Property and Land Laws', icon: '🏘️',
     laws: [
-      { name: 'Real Estate Regulation Act, 2016', short: 'RERA', desc: 'Regulation of real estate sector and protection of buyers', url: 'https://legislative.gov.in/sites/default/files/A2016-16.pdf' },
-      { name: 'Land Acquisition Act, 2013', short: 'LAA', desc: 'Acquisition of land by government with fair compensation', url: 'https://legislative.gov.in/sites/default/files/A2013-30.pdf' },
-      { name: 'Benami Transactions Prohibition Act, 1988', short: 'BTPA', desc: 'Prohibition of benami property transactions', url: 'https://legislative.gov.in/sites/default/files/A1988-45.pdf' },
+      { name: 'Real Estate Regulation Act, 2016', short: 'RERA', desc: 'Regulation of real estate sector and protection of buyers', url: 'https://www.google.com/search?q=RERA+Real+Estate+Regulation+Act+2016+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Land Acquisition Act, 2013', short: 'LAA', desc: 'Acquisition of land by government with fair compensation', url: 'https://www.google.com/search?q=Land+Acquisition+Act+2013+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Benami Transactions Prohibition Act, 1988', short: 'BTPA', desc: 'Prohibition of benami property transactions', url: 'https://www.google.com/search?q=Benami+Transactions+Prohibition+Act+1988+bare+act+PDF+site:indiacode.nic.in' },
     ]
   },
   {
     category: 'Medical and Social Laws', icon: '🏥',
     laws: [
-      { name: 'Surrogacy Regulation Act, 2021', short: 'SRA', desc: 'Regulation of surrogacy in India', url: 'https://legislative.gov.in/sites/default/files/A2021-47.pdf' },
-      { name: 'Mental Healthcare Act, 2017', short: 'MHA', desc: 'Rights of persons with mental illness', url: 'https://legislative.gov.in/sites/default/files/A2017-10.pdf' },
-      { name: 'Rights of Persons with Disabilities Act, 2016', short: 'RPWD', desc: 'Rights and protection of disabled persons', url: 'https://legislative.gov.in/sites/default/files/A2016-49.pdf' },
-      { name: 'PCPNDT Act, 1994', short: 'PCPNDT', desc: 'Prevention of sex-selective abortion', url: 'https://legislative.gov.in/sites/default/files/A1994-57.pdf' },
-      { name: 'Medical Termination of Pregnancy Act, 1971', short: 'MTP', desc: 'Regulation of abortion in India', url: 'https://legislative.gov.in/sites/default/files/A1971-34.pdf' },
+      { name: 'Surrogacy Regulation Act, 2021', short: 'SRA', desc: 'Regulation of surrogacy in India', url: 'https://www.google.com/search?q=Surrogacy+Regulation+Act+2021+bare+act+PDF+site:mohfw.gov.in' },
+      { name: 'Mental Healthcare Act, 2017', short: 'MHA', desc: 'Rights of persons with mental illness', url: 'https://www.google.com/search?q=Mental+Healthcare+Act+2017+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'Rights of Persons with Disabilities Act, 2016', short: 'RPWD', desc: 'Rights and protection of disabled persons', url: 'https://www.google.com/search?q=Rights+of+Persons+with+Disabilities+Act+2016+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'PCPNDT Act, 1994', short: 'PCPNDT', desc: 'Prevention of sex-selective abortion', url: 'https://www.google.com/search?q=PCPNDT+Act+1994+bare+act+PDF+site:mohfw.gov.in' },
+      { name: 'Medical Termination of Pregnancy Act, 1971', short: 'MTP', desc: 'Regulation of abortion in India', url: 'https://www.google.com/search?q=Medical+Termination+of+Pregnancy+Act+1971+bare+act+PDF+site:mohfw.gov.in' },
     ]
   },
   {
     category: 'Education Laws', icon: '🎓',
     laws: [
-      { name: 'Right to Education Act, 2009', short: 'RTE', desc: 'Free and compulsory education for children 6-14 years', url: 'https://legislative.gov.in/sites/default/files/A2009-35.pdf' },
-      { name: 'University Grants Commission Act, 1956', short: 'UGC', desc: 'Regulation of higher education in India', url: 'https://www.ugc.gov.in/ugc_act.aspx' },
+      { name: 'Right to Education Act, 2009', short: 'RTE', desc: 'Free and compulsory education for children 6-14 years', url: 'https://www.google.com/search?q=Right+to+Education+Act+2009+bare+act+PDF+site:indiacode.nic.in' },
+      { name: 'University Grants Commission Act, 1956', short: 'UGC', desc: 'Regulation of higher education in India', url: 'https://www.google.com/search?q=University+Grants+Commission+Act+1956+bare+act+PDF+site:ugc.gov.in' },
     ]
   },
 ];
