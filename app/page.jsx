@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Home() {
-  const [language, setLanguage] = useState<('english');
+  const [language, setLanguage] = useState('english');
 
   const content = {
     english: {
