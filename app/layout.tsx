@@ -17,6 +17,46 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+
+  const theme = {
+    dark: {
+      bg: '#080808',
+      headerBg: '#0a0a0a',
+      navBg: '#111111',
+      footerBg: '#0a0a0a',
+      text: '#f5f0e8',
+      textMuted: 'rgba(255,255,255,0.4)',
+      textNav: 'rgba(255,255,255,0.5)',
+      border: 'rgba(201,168,76,0.25)',
+      navBorder: 'rgba(201,168,76,0.2)',
+      mobileMenuBg: 'rgba(8,8,8,0.99)',
+      mobileNavBg: '#141414',
+      mobileNavBorder: 'rgba(201,168,76,0.1)',
+      toggleBg: '#1a1a1a',
+      toggleIcon: '☀️',
+      toggleLabel: 'Light',
+    },
+    light: {
+      bg: '#f5f0e8',
+      headerBg: '#ffffff',
+      navBg: '#f0ebe0',
+      footerBg: '#ffffff',
+      text: '#1a1a1a',
+      textMuted: 'rgba(0,0,0,0.5)',
+      textNav: 'rgba(0,0,0,0.6)',
+      border: 'rgba(201,168,76,0.4)',
+      navBorder: 'rgba(201,168,76,0.3)',
+      mobileMenuBg: 'rgba(245,240,232,0.99)',
+      mobileNavBg: '#ffffff',
+      mobileNavBorder: 'rgba(201,168,76,0.2)',
+      toggleBg: '#e8e0d0',
+      toggleIcon: '🌙',
+      toggleLabel: 'Dark',
+    },
+  };
+
+  const T = darkMode ? theme.dark : theme.light;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -41,6 +81,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     document.title = titles[pathname] || 'Firm Law AI';
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.style.background = T.bg;
+  }, [darkMode]);
+
   return (
     <html lang="en">
       <head>
@@ -53,17 +97,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body style={{background: 'var(--black)', margin: 0, padding: 0}}>
+      <body style={{background: T.bg, margin: 0, padding: 0, transition: 'all 0.3s'}}>
 
         {/* HEADER */}
         <header style={{
-          background: '#0a0a0a',
-          borderBottom: '1px solid rgba(201,168,76,0.25)',
+          background: T.headerBg,
+          borderBottom: `1px solid ${T.border}`,
           position: 'sticky',
           top: 0,
           zIndex: 100,
           transition: 'all 0.3s',
-          boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.4)' : 'none'
+          boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.15)' : 'none'
         }}>
           <div style={{maxWidth: '1100px', margin: '0 auto', padding: '0 24px', height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
 
@@ -81,7 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   fontFamily: 'Cormorant Garamond, serif',
                   fontSize: '26px',
                   fontWeight: 600,
-                  color: '#ffffff',
+                  color: T.text,
                   lineHeight: 1,
                   letterSpacing: '0.5px'
                 }}>
@@ -100,6 +144,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
 
             <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+
+              {/* DARK/LIGHT TOGGLE */}
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                style={{
+                  background: T.toggleBg,
+                  border: '1px solid rgba(201,168,76,0.3)',
+                  borderRadius: '20px',
+                  padding: '6px 14px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  color: '#c9a84c',
+                  fontFamily: 'Outfit, sans-serif',
+                  transition: 'all 0.3s',
+                }}>
+                {T.toggleIcon} {T.toggleLabel}
+              </button>
+
               <div style={{
                 fontSize: '10px',
                 padding: '4px 14px',
@@ -123,16 +189,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   flexDirection: 'column' as const,
                   gap: '5px',
                 }}>
-                <div style={{width: '18px', height: '2px', background: menuOpen ? '#c9a84c' : 'rgba(255,255,255,0.6)', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none'}}/>
-                <div style={{width: '18px', height: '2px', background: menuOpen ? 'transparent' : 'rgba(255,255,255,0.6)', transition: 'all 0.3s'}}/>
-                <div style={{width: '18px', height: '2px', background: menuOpen ? '#c9a84c' : 'rgba(255,255,255,0.6)', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none'}}/>
+                <div style={{width: '18px', height: '2px', background: menuOpen ? '#c9a84c' : (darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)'), transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none'}}/>
+                <div style={{width: '18px', height: '2px', background: menuOpen ? 'transparent' : (darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)'), transition: 'all 0.3s'}}/>
+                <div style={{width: '18px', height: '2px', background: menuOpen ? '#c9a84c' : (darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)'), transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none'}}/>
               </button>
             </div>
           </div>
         </header>
 
         {/* DESKTOP NAV */}
-        <nav style={{background: '#111111', borderBottom: '1px solid rgba(201,168,76,0.2)', overflowX: 'auto'}} className="desktop-nav">
+        <nav style={{background: T.navBg, borderBottom: `1px solid ${T.navBorder}`, overflowX: 'auto'}} className="desktop-nav">
           <div style={{maxWidth: '1100px', margin: '0 auto', display: 'flex'}}>
             {navItems.map((tab, i) => (
               <Link key={i} href={tab.href} style={{
@@ -144,7 +210,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 alignItems: 'center',
                 gap: '7px',
                 textDecoration: 'none',
-                color: pathname === tab.href ? '#c9a84c' : 'rgba(255,255,255,0.5)',
+                color: pathname === tab.href ? '#c9a84c' : T.textNav,
                 borderBottom: pathname === tab.href ? '2.5px solid #c9a84c' : '2.5px solid transparent',
                 background: pathname === tab.href ? 'rgba(201,168,76,0.08)' : 'transparent',
                 transition: 'all 0.2s',
@@ -160,7 +226,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {menuOpen && (
           <div style={{
             position: 'fixed', top: '70px', left: 0, right: 0, bottom: 0,
-            background: 'rgba(8,8,8,0.99)',
+            background: T.mobileMenuBg,
             zIndex: 99,
             padding: '24px',
             display: 'flex',
@@ -177,16 +243,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 alignItems: 'center',
                 gap: '14px',
                 textDecoration: 'none',
-                color: pathname === tab.href ? '#c9a84c' : '#f5f0e8',
+                color: pathname === tab.href ? '#c9a84c' : T.text,
                 borderRadius: '10px',
-                background: pathname === tab.href ? 'rgba(201,168,76,0.08)' : '#141414',
-                border: pathname === tab.href ? '1px solid rgba(201,168,76,0.3)' : '1px solid rgba(201,168,76,0.1)',
+                background: pathname === tab.href ? 'rgba(201,168,76,0.08)' : T.mobileNavBg,
+                border: pathname === tab.href ? '1px solid rgba(201,168,76,0.3)' : `1px solid ${T.mobileNavBorder}`,
               }}>
                 <span style={{fontSize: '20px'}}>{tab.icon}</span>{tab.label}
               </Link>
             ))}
             <div style={{marginTop: 'auto', paddingTop: '24px', borderTop: '1px solid rgba(201,168,76,0.15)'}}>
-              <p style={{fontSize: '12px', color: 'rgba(255,255,255,0.25)', textAlign: 'center'}}>© 2025 Firm Law AI — Built for India 🇮🇳</p>
+              <p style={{fontSize: '12px', color: T.textMuted, textAlign: 'center'}}>© 2025 Firm Law AI — Built for India 🇮🇳</p>
             </div>
           </div>
         )}
@@ -197,22 +263,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {/* FOOTER */}
-        <footer style={{background: '#0a0a0a', borderTop: '1px solid rgba(201,168,76,0.2)', padding: '40px 24px'}}>
+        <footer style={{background: T.footerBg, borderTop: `1px solid ${T.navBorder}`, padding: '40px 24px'}}>
           <div style={{maxWidth: '1100px', margin: '0 auto'}}>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' as const, gap: '32px', marginBottom: '32px'}}>
               <div style={{maxWidth: '280px'}}>
-                <div style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '26px', fontWeight: 600, color: '#ffffff', marginBottom: '4px'}}>
+                <div style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '26px', fontWeight: 600, color: T.text, marginBottom: '4px'}}>
                   Firm Law <span style={{color: '#c9a84c'}}>AI</span>
                 </div>
                 <div style={{fontSize: '9px', color: '#c9a84c', letterSpacing: '3px', textTransform: 'uppercase' as const, marginBottom: '12px'}}>Indian Legal Assistant</div>
-                <p style={{fontSize: '13px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, fontWeight: 300}}>AI-powered Indian legal assistant. Free, fast, and built for every Indian citizen.</p>
+                <p style={{fontSize: '13px', color: T.textMuted, lineHeight: 1.7, fontWeight: 300}}>AI-powered Indian legal assistant. Free, fast, and built for every Indian citizen.</p>
               </div>
               <div style={{display: 'flex', gap: '48px', flexWrap: 'wrap' as const}}>
                 <div>
                   <div style={{fontSize: '10px', color: '#c9a84c', letterSpacing: '2px', textTransform: 'uppercase' as const, marginBottom: '16px', fontWeight: 500}}>Features</div>
                   {[['Legal Q&A', '/legal-qa'], ['Draft Documents', '/draft'], ['Law Student Hub', '/student'], ['Know Your Rights', '/rights'], ['Laws Library', '/laws']].map(([label, href]) => (
                     <div key={href} style={{marginBottom: '10px'}}>
-                      <Link href={href} style={{fontSize: '13px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontWeight: 300}}>{label}</Link>
+                      <Link href={href} style={{fontSize: '13px', color: T.textMuted, textDecoration: 'none', fontWeight: 300}}>{label}</Link>
                     </div>
                   ))}
                 </div>
@@ -220,15 +286,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <div style={{fontSize: '10px', color: '#c9a84c', letterSpacing: '2px', textTransform: 'uppercase' as const, marginBottom: '16px', fontWeight: 500}}>Company</div>
                   {[['About Us', '/about'], ['Contact', '/contact'], ['Terms of Use', '/terms'], ['Privacy Policy', '/terms']].map(([label, href]) => (
                     <div key={label} style={{marginBottom: '10px'}}>
-                      <Link href={href} style={{fontSize: '13px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontWeight: 300}}>{label}</Link>
+                      <Link href={href} style={{fontSize: '13px', color: T.textMuted, textDecoration: 'none', fontWeight: 300}}>{label}</Link>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
             <div style={{borderTop: '1px solid rgba(201,168,76,0.15)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' as const, gap: '12px'}}>
-              <p style={{fontSize: '12px', color: 'rgba(255,255,255,0.2)'}}>© 2025 Firm Law AI — General legal information only. Not legal advice.</p>
-              <p style={{fontSize: '12px', color: 'rgba(255,255,255,0.2)'}}>Built for India 🇮🇳</p>
+              <p style={{fontSize: '12px', color: T.textMuted}}>© 2025 Firm Law AI — General legal information only. Not legal advice.</p>
+              <p style={{fontSize: '12px', color: T.textMuted}}>Built for India 🇮🇳</p>
             </div>
           </div>
         </footer>
