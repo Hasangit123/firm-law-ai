@@ -84,9 +84,9 @@ export default function Home() {
           <div style={{display: 'flex', justifyContent: 'center', marginBottom: '28px', position: 'relative'}}>
             <div style={{display: 'flex', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: '10px', padding: '4px', gap: '4px'}}>
               {[
-                { key: 'english' as const, flag: '🇬🇧', label: 'English' },
-                { key: 'hindi' as const, flag: '🇮🇳', label: 'हिंदी' },
-                { key: 'telugu' as const, flag: '🌟', label: 'తెలుగు' },
+                { key: 'english' , flag: '🇬🇧', label: 'English' },
+                { key: 'hindi' , flag: '🇮🇳', label: 'हिंदी' },
+                { key: 'telugu' , flag: '🌟', label: 'తెలుగు' },
               ].map(lang => (
                 <button key={lang.key} onClick={() => setLanguage(lang.key)}
                   style={{padding: '8px 16px', borderRadius: '7px', border: 'none', fontSize: '12px', fontWeight: 600, cursor: 'pointer', fontFamily: 'Outfit, sans-serif', transition: 'all 0.2s', background: language === lang.key ? 'linear-gradient(135deg, #c9a84c, #8a6f2e)' : 'transparent', color: language === lang.key ? '#080808' : '#5a5a5a'}}>
@@ -115,7 +115,7 @@ export default function Home() {
             {[['50+', 'Indian Acts'], ['7', 'Features'], ['8', 'Rights Categories'], ['100%', 'Free to Use']].map(([num, label]) => (
               <div key={label} style={{textAlign: 'center'}}>
                 <div style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '32px', fontWeight: 600, color: 'var(--gold)'}}>{num}</div>
-                <div style={{fontSize: '12px', color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase' as const, marginTop: '4px'}}>{label}</div>
+                <div style={{fontSize: '12px', color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase' , marginTop: '4px'}}>{label}</div>
               </div>
             ))}
           </div>
@@ -136,7 +136,7 @@ export default function Home() {
                 <div style={{fontSize: '32px', marginBottom: '16px'}}>{card.icon}</div>
                 <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px'}}>
                   <h3 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '20px', fontWeight: 600, color: 'var(--off-white)'}}>{card.title}</h3>
-                  <span style={{fontSize: '10px', padding: '2px 8px', borderRadius: '10px', background: 'rgba(201,168,76,0.1)', color: 'var(--gold)', border: '1px solid rgba(201,168,76,0.2)', letterSpacing: '0.5px', whiteSpace: 'nowrap' as const}}>{card.tag}</span>
+                  <span style={{fontSize: '10px', padding: '2px 8px', borderRadius: '10px', background: 'rgba(201,168,76,0.1)', color: 'var(--gold)', border: '1px solid rgba(201,168,76,0.2)', letterSpacing: '0.5px', whiteSpace: 'nowrap' }}>{card.tag}</span>
                 </div>
                 <p style={{fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.7, fontWeight: 300}}>{card.desc}</p>
               </div>
