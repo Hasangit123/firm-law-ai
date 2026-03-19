@@ -35,7 +35,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       mobileNavBorder: 'rgba(201,168,76,0.1)',
       toggleBg: '#1a1a1a',
       toggleIcon: '☀️',
-      toggleLabel: 'Light',
     },
     light: {
       bg: '#f5f0e8',
@@ -52,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       mobileNavBorder: 'rgba(201,168,76,0.2)',
       toggleBg: '#e8e0d0',
       toggleIcon: '🌙',
-      toggleLabel: 'Dark',
     },
   };
 
@@ -144,38 +142,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </Link>
 
-            <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
 
-              {/* DARK/LIGHT TOGGLE */}
+              {/* DARK/LIGHT TOGGLE — icon only on mobile */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
+                title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                 style={{
                   background: T.toggleBg,
                   border: '1px solid rgba(201,168,76,0.3)',
-                  borderRadius: '20px',
-                  padding: '6px 14px',
+                  borderRadius: '50%',
+                  width: '34px',
+                  height: '34px',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  color: '#c9a84c',
-                  fontFamily: 'Outfit, sans-serif',
+                  justifyContent: 'center',
+                  fontSize: '16px',
                   transition: 'all 0.3s',
+                  flexShrink: 0,
                 }}>
-                {T.toggleIcon} {T.toggleLabel}
+                {T.toggleIcon}
               </button>
-
-              <div style={{
-                fontSize: '10px',
-                padding: '4px 14px',
-                borderRadius: '20px',
-                border: '1px solid rgba(201,168,76,0.4)',
-                color: '#c9a84c',
-                letterSpacing: '2px',
-                fontWeight: 500
-              }}>BETA</div>
 
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
