@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import LanguageToggle from '../components/LanguageToggle';
+import SkeletonLoader from '../components/SkeletonLoader';
 import { stripMarkdown, printMarkdown } from '../utils/markdownUtils';
 
 const modes = [
@@ -138,14 +139,7 @@ export default function LawStudent() {
           </div>
         )}
 
-        {loading && (
-          <div style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '16px', padding: '48px', textAlign: 'center'}}>
-            <div style={{width: '48px', height: '48px', border: '3px solid rgba(201,168,76,0.2)', borderTop: '3px solid var(--gold)', borderRadius: '50%', margin: '0 auto 20px', animation: 'spin 1s linear infinite'}}/>
-            <p style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '20px', color: 'var(--off-white)', marginBottom: '6px'}}>Preparing your study material...</p>
-            <p style={{fontSize: '13px', color: 'var(--text-dim)', fontWeight: 300}}>Researching Indian law and case references</p>
-            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-          </div>
-        )}
+        {loading && <SkeletonLoader title="Preparing your study material..." subtitle="Researching Indian law and case references" />}
 
         {error && (
           <div style={{background: 'rgba(255,50,50,0.05)', border: '1px solid rgba(255,50,50,0.2)', borderRadius: '12px', padding: '16px', fontSize: '13px', color: '#ff6b6b'}}>❌ {error}</div>
@@ -188,7 +182,6 @@ export default function LawStudent() {
           </div>
         )}
 
-        {/* Chat Banner — shown at bottom when no answer */}
         {!answer && !loading && (
           <a href="/chat?from=student" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginTop: '8px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
