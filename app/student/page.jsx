@@ -78,7 +78,7 @@ export default function LawStudent() {
             <button key={mode.id} onClick={() => { setSelectedMode(mode); setAnswer(''); setInput(''); setError(''); }}
               style={{padding: '16px 12px', borderRadius: '12px', textAlign: 'left', background: selectedMode.id === mode.id ? 'rgba(201,168,76,0.1)' : 'var(--black-card)', border: selectedMode.id === mode.id ? '1px solid rgba(201,168,76,0.4)' : '1px solid var(--border)', cursor: 'pointer', transition: 'all 0.2s', fontFamily: 'Outfit, sans-serif'}}>
               <div style={{fontSize: '22px', marginBottom: '8px'}}>{mode.icon}</div>
-              <div style={{fontSize: '12px', fontWeight: 600, color: selectedMode.id === mode.id ? 'var(--gold)' : 'var(--off-white)'}}>{mode.title}</div>
+              <div style={{fontSize: '12px', fontWeight: 600, color: selectedMode.id === mode.id ? 'var(--gold)' : '#ffffff'}}>{mode.title}</div>
             </button>
           ))}
         </div>
@@ -100,7 +100,7 @@ export default function LawStudent() {
             <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px'}}>
               {quickTopics.map((topic, i) => (
                 <button key={i} onClick={() => { setInput(topic); setSelectedMode(modes[0]); getAnswer(topic); }}
-                  style={{fontSize: '12px', padding: '8px 14px', borderRadius: '20px', background: 'var(--black-card)', border: '1px solid var(--border)', color: 'var(--text-muted)', cursor: 'pointer', fontFamily: 'Outfit, sans-serif'}}>
+                  style={{fontSize: '12px', padding: '8px 14px', borderRadius: '20px', background: 'var(--black-card)', border: '1px solid var(--border)', color: '#ffffff', cursor: 'pointer', fontFamily: 'Outfit, sans-serif'}}>
                   {topic}
                 </button>
               ))}
