@@ -211,6 +211,18 @@ export default function DraftDocument() {
                 </div>
               ))}
             </div>
+
+            {/* Chat Banner — at bottom of document selection */}
+            <a href="/chat?from=draft" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginTop: '24px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <span style={{fontSize: '20px'}}>🤖</span>
+                <div>
+                  <p style={{fontSize: '13px', fontWeight: 600, color: '#c9a84c', margin: 0}}>Need help deciding what to draft?</p>
+                  <p style={{fontSize: '12px', color: 'rgba(245,240,232,0.5)', margin: 0}}>Switch to Chat Mode — describe your situation and get guidance on what document you need</p>
+                </div>
+              </div>
+              <span style={{fontSize: '12px', fontWeight: 600, color: '#080808', background: 'linear-gradient(135deg, #c9a84c, #8a6f2e)', padding: '6px 14px', borderRadius: '8px', whiteSpace: 'nowrap'}}>💬 Open Chat →</span>
+            </a>
           </div>
         )}
 
@@ -291,6 +303,17 @@ export default function DraftDocument() {
               <div style={{marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--border)', fontSize: '12px', color: 'var(--text-dim)'}}>
                 ⚠️ This document is AI-generated. Please review carefully and consult a qualified advocate before filing.
               </div>
+              {/* Chat Banner — after document is generated */}
+              <a href="/chat?from=draft" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginTop: '20px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                  <span style={{fontSize: '20px'}}>🤖</span>
+                  <div>
+                    <p style={{fontSize: '13px', fontWeight: 600, color: '#c9a84c', margin: 0}}>Have questions about this document?</p>
+                    <p style={{fontSize: '12px', color: 'rgba(245,240,232,0.5)', margin: 0}}>Switch to Chat Mode — ask follow-up questions with full conversation memory</p>
+                  </div>
+                </div>
+                <span style={{fontSize: '12px', fontWeight: 600, color: '#080808', background: 'linear-gradient(135deg, #c9a84c, #8a6f2e)', padding: '6px 14px', borderRadius: '8px', whiteSpace: 'nowrap'}}>💬 Open Chat →</span>
+              </a>
             </div>
           </div>
         )}

@@ -175,12 +175,33 @@ export default function LawStudent() {
             <div style={{marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--border)', fontSize: '12px', color: 'var(--text-dim)'}}>
               ⚠️ Always verify case citations and sections with official sources before use in exams or court.
             </div>
-            <button onClick={() => { setAnswer(''); setInput(''); }}
-              style={{marginTop: '16px', fontSize: '12px', padding: '8px 16px', borderRadius: '8px', background: 'transparent', border: '1px solid var(--border)', color: '#ffffff', cursor: 'pointer', fontFamily: 'Outfit, sans-serif'}}>
-              New Query
-            </button>
+            <div style={{display: 'flex', gap: '8px', marginTop: '16px', flexWrap: 'wrap'}}>
+              <button onClick={() => { setAnswer(''); setInput(''); }}
+                style={{fontSize: '12px', padding: '8px 16px', borderRadius: '8px', background: 'transparent', border: '1px solid var(--border)', color: '#ffffff', cursor: 'pointer', fontFamily: 'Outfit, sans-serif'}}>
+                New Query
+              </button>
+              <a href="/chat?from=student"
+                style={{fontSize: '12px', padding: '8px 16px', borderRadius: '8px', background: 'transparent', border: '1px solid rgba(201,168,76,0.3)', color: '#c9a84c', cursor: 'pointer', fontFamily: 'Outfit, sans-serif', textDecoration: 'none'}}>
+                💬 Continue in Chat
+              </a>
+            </div>
           </div>
         )}
+
+        {/* Chat Banner — shown at bottom when no answer */}
+        {!answer && !loading && (
+          <a href="/chat?from=student" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginTop: '8px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+              <span style={{fontSize: '20px'}}>🤖</span>
+              <div>
+                <p style={{fontSize: '13px', fontWeight: 600, color: '#c9a84c', margin: 0}}>Want to have a full study session?</p>
+                <p style={{fontSize: '12px', color: 'rgba(245,240,232,0.5)', margin: 0}}>Switch to Chat Mode — ask multiple questions and the AI remembers the conversation</p>
+              </div>
+            </div>
+            <span style={{fontSize: '12px', fontWeight: 600, color: '#080808', background: 'linear-gradient(135deg, #c9a84c, #8a6f2e)', padding: '6px 14px', borderRadius: '8px', whiteSpace: 'nowrap'}}>💬 Open Chat →</span>
+          </a>
+        )}
+
       </main>
     </div>
   );
