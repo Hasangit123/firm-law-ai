@@ -124,6 +124,9 @@ export default function DraftDocument() {
     setGeneratedDoc('');
     setError('');
     setShowModal(false);
+    setTimeout(() => {
+      document.getElementById('draft-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   }
 
   function handleInput(fieldId, value) {
@@ -398,7 +401,7 @@ export default function DraftDocument() {
 
         {/* ── Form ── */}
         {selected && (
-          <div style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px'}}>
+          <div id="draft-form" style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', paddingBottom: '14px', borderBottom: '1px solid var(--border)'}}>
               <span style={{fontSize: '28px'}}>{selected.icon}</span>
               <div>
