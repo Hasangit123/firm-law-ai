@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import LanguageToggle from '../components/LanguageToggle';
@@ -41,7 +41,7 @@ const markdownStyles = `
   .markdown-body hr { border: none; border-top: 1px solid rgba(201,168,76,0.2); margin: 12px 0; }
 `;
 
-export default function ChatPage() {
+function ChatContent() {
   const searchParams = useSearchParams();
   const contextKey = searchParams.get('from') || '';
   const contextLaw = searchParams.get('law') || '';
@@ -237,7 +237,18 @@ export default function ChatPage() {
         </div>
         <p style={{ maxWidth: '800px', margin: '8px auto 0', fontSize: '11px', color: 'var(--text-dim)', textAlign: 'center' }}>⚠️ AI-generated responses. Always consult a qualified advocate for specific legal matters.</p>
       </div>
-
     </div>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense fallback={
+      <div style={{ background: 'var(--black)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ color: 'var(--gold)', fontFamily: 'Cormorant Garamond, serif', fontSize: '24px' }}>Loading chat...</p>
+      </div>
+    }>
+      <ChatContent />
+    </Suspense>
   );
 }
