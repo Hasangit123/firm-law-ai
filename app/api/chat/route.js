@@ -6,7 +6,7 @@ const groq = new Groq({
 
 export async function POST(request) {
   try {
-    const { message, mode, language } = await request.json();
+    const { message, mode, language, history, systemContext } = await request.json();
 
     const langInstruction =
       language === 'hindi'
@@ -21,12 +21,28 @@ export async function POST(request) {
       draft: `You are Firm Law AI, an expert at drafting Indian legal documents. ${langInstruction} When given details, draft professional legal documents. Use proper legal language and format. Include all necessary legal elements. Reference relevant Indian laws.`,
     };
 
+    const systemPrompt = systemContext
+      ? `${systemContext} ${langInstruction}`
+      : systemPrompts[mode] || systemPrompts.qa;
+
+    let messages;
+
+    if (history && history.length > 0) {
+      const filteredHistory = history.filter(m => m.role !== 'assistant' || history.indexOf(m) !== 0);
+      messages = [
+        { role: 'system', content: systemPrompt },
+        ...filteredHistory,
+      ];
+    } else {
+      messages = [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: message },
+      ];
+    }
+
     const completion = await groq.chat.completions.create({
       model: "llama-3.3-70b-versatile",
-      messages: [
-        { role: "system", content: systemPrompts[mode] || systemPrompts.qa },
-        { role: "user", content: message },
-      ],
+      messages,
       max_tokens: 1024,
     });
 
