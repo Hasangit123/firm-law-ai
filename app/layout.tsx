@@ -75,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       '/about': 'About — Firm Law AI',
       '/contact': 'Contact — Firm Law AI',
       '/terms': 'Terms of Use — Firm Law AI',
+      '/privacy': 'Privacy Policy — Firm Law AI',
     };
     document.title = titles[pathname] || 'Firm Law AI';
   }, [pathname]);
@@ -143,8 +144,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
 
             <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-
-              {/* DARK/LIGHT TOGGLE — icon only on mobile */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
@@ -241,7 +240,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
             ))}
             <div style={{marginTop: 'auto', paddingTop: '24px', borderTop: '1px solid rgba(201,168,76,0.15)'}}>
-              <p style={{fontSize: '12px', color: T.textMuted, textAlign: 'center'}}>© 2025 Firm Law AI — Built for India 🇮🇳</p>
+              <p style={{fontSize: '12px', color: T.textMuted, textAlign: 'center'}}>© 2026 Firm Law AI — Built for India 🇮🇳</p>
             </div>
           </div>
         )}
@@ -273,7 +272,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
                 <div>
                   <div style={{fontSize: '10px', color: '#c9a84c', letterSpacing: '2px', textTransform: 'uppercase' as const, marginBottom: '16px', fontWeight: 500}}>Company</div>
-                  {[['About Us', '/about'], ['Contact', '/contact'], ['Terms of Use', '/terms'], ['Privacy Policy', '/terms']].map(([label, href]) => (
+                  {[['About Us', '/about'], ['Contact', '/contact'], ['Terms of Use', '/terms'], ['Privacy Policy', '/privacy']].map(([label, href]) => (
                     <div key={label} style={{marginBottom: '10px'}}>
                       <Link href={href} style={{fontSize: '13px', color: T.textMuted, textDecoration: 'none', fontWeight: 300}}>{label}</Link>
                     </div>
@@ -282,7 +281,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
             <div style={{borderTop: '1px solid rgba(201,168,76,0.15)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' as const, gap: '12px'}}>
-              <p style={{fontSize: '12px', color: T.textMuted}}>© 2025 Firm Law AI — General legal information only. Not legal advice.</p>
+              <p style={{fontSize: '12px', color: T.textMuted}}>© 2026 Firm Law AI — General legal information only. Not legal advice.</p>
               <p style={{fontSize: '12px', color: T.textMuted}}>Built for India 🇮🇳</p>
             </div>
           </div>

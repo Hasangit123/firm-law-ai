@@ -6,8 +6,8 @@ export default function Terms() {
       <main style={{maxWidth: '800px', margin: '0 auto', padding: '40px 24px 80px'}}>
 
         <div style={{marginBottom: '40px'}}>
-          <h1 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '48px', fontWeight: 600, color: 'var(--off-white)', marginBottom: '12px'}}>Terms of Use & <span style={{color: 'var(--gold)'}}>Privacy Policy</span></h1>
-          <p style={{fontSize: '14px', color: 'var(--text-muted)', fontWeight: 300}}>Last updated: March 2025</p>
+          <h1 style={{fontFamily: 'Cormorant Garamond, serif', fontSize: '48px', fontWeight: 600, color: 'var(--off-white)', marginBottom: '12px'}}>Terms of <span style={{color: 'var(--gold)'}}>Use</span></h1>
+          <p style={{fontSize: '14px', color: 'var(--text-muted)', fontWeight: 300}}>Last updated: March 2026</p>
         </div>
 
         {[
@@ -36,19 +36,15 @@ export default function Terms() {
             content: 'The Firm Law AI platform, its design, and branding are the intellectual property of its creators. AI-generated content provided to you may be used for personal and non-commercial purposes.'
           },
           {
-            title: '7. Privacy Policy',
-            content: 'Firm Law AI does not store your personal data or legal queries on our servers beyond the duration of your session. We do not sell or share your information with third parties. API calls are processed through Groq\'s infrastructure subject to their privacy policy.'
-          },
-          {
-            title: '8. Limitation of Liability',
+            title: '7. Limitation of Liability',
             content: 'Firm Law AI and its creators shall not be liable for any damages arising from the use or inability to use this service, including any reliance on AI-generated legal content.'
           },
           {
-            title: '9. Changes to Terms',
+            title: '8. Changes to Terms',
             content: 'We reserve the right to modify these terms at any time. Continued use of the platform after changes constitutes acceptance of the new terms.'
           },
           {
-            title: '10. Contact',
+            title: '9. Contact',
             content: 'For any questions regarding these terms, please contact us through our Contact page.'
           },
         ].map((section, i) => (
@@ -58,7 +54,8 @@ export default function Terms() {
           </div>
         ))}
 
-        <div style={{marginTop: '32px'}}>
+        <div style={{marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
+          <Link href="/privacy" style={{background: 'transparent', color: 'var(--gold)', padding: '12px 28px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(201,168,76,0.3)'}}>View Privacy Policy</Link>
           <Link href="/" style={{background: 'linear-gradient(135deg, var(--gold), var(--gold-dim))', color: 'var(--black)', padding: '12px 28px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, textDecoration: 'none'}}>Back to Home</Link>
         </div>
 
