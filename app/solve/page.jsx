@@ -151,17 +151,6 @@ Be practical, specific, and actionable. Focus on Indian law only.`;
           <LanguageToggle language={language} setLanguage={setLanguage} />
         </div>
 
-        <a href="/chat?from=solve" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginBottom: '24px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
-          <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-            <span style={{fontSize: '20px'}}>🤖</span>
-            <div>
-              <p style={{fontSize: '13px', fontWeight: 600, color: '#c9a84c', margin: 0}}>Need to ask follow-up questions?</p>
-              <p style={{fontSize: '12px', color: 'rgba(245,240,232,0.5)', margin: 0}}>Switch to Chat Mode — the AI remembers your problem and answers follow-ups</p>
-            </div>
-          </div>
-          <span style={{fontSize: '12px', fontWeight: 600, color: '#080808', background: 'linear-gradient(135deg, #c9a84c, #8a6f2e)', padding: '6px 14px', borderRadius: '8px', whiteSpace: 'nowrap'}}>💬 Open Chat →</span>
-        </a>
-
         <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '32px'}}>
           {[{num: 1, label: 'Category'}, {num: 2, label: 'Your Situation'}, {num: 3, label: 'Solution'}].map((s, i) => (
             <div key={s.num} style={{display: 'flex', alignItems: 'center', gap: '8px', flex: i < 2 ? 1 : 'none'}}>
@@ -186,6 +175,18 @@ Be practical, specific, and actionable. Focus on Indian law only.`;
                 </div>
               ))}
             </div>
+
+            {/* Chat Banner — at bottom of category selection */}
+            <a href="/chat?from=solve" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginTop: '24px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <span style={{fontSize: '20px'}}>🤖</span>
+                <div>
+                  <p style={{fontSize: '13px', fontWeight: 600, color: '#c9a84c', margin: 0}}>Need to ask follow-up questions?</p>
+                  <p style={{fontSize: '12px', color: 'rgba(245,240,232,0.5)', margin: 0}}>Switch to Chat Mode — the AI remembers your problem and answers follow-ups</p>
+                </div>
+              </div>
+              <span style={{fontSize: '12px', fontWeight: 600, color: '#080808', background: 'linear-gradient(135deg, #c9a84c, #8a6f2e)', padding: '6px 14px', borderRadius: '8px', whiteSpace: 'nowrap'}}>💬 Open Chat →</span>
+            </a>
           </div>
         )}
 
@@ -278,6 +279,7 @@ Be practical, specific, and actionable. Focus on Indian law only.`;
             </div>
           </div>
         )}
+
       </main>
     </div>
   );
