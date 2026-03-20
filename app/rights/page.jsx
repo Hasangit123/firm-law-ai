@@ -130,14 +130,28 @@ export default function KnowYourRights() {
         </div>
 
         {!selected && (
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px'}}>
-            {categories.map(cat => (
-              <div key={cat.id} onClick={() => setSelected(cat)}
-                style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '14px', padding: '24px 16px', cursor: 'pointer', textAlign: 'center', transition: 'all 0.2s'}}>
-                <div style={{fontSize: '32px', marginBottom: '12px'}}>{cat.icon}</div>
-                <h3 style={{fontSize: '13px', fontWeight: 600, color: '#ffffff'}}>{cat.title}</h3>
+          <div>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px'}}>
+              {categories.map(cat => (
+                <div key={cat.id} onClick={() => setSelected(cat)}
+                  style={{background: 'var(--black-card)', border: '1px solid var(--border)', borderRadius: '14px', padding: '24px 16px', cursor: 'pointer', textAlign: 'center', transition: 'all 0.2s'}}>
+                  <div style={{fontSize: '32px', marginBottom: '12px'}}>{cat.icon}</div>
+                  <h3 style={{fontSize: '13px', fontWeight: 600, color: '#ffffff'}}>{cat.title}</h3>
+                </div>
+              ))}
+            </div>
+
+            {/* Chat Banner — at bottom of categories */}
+            <a href="/chat?from=rights" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginTop: '24px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <span style={{fontSize: '20px'}}>🤖</span>
+                <div>
+                  <p style={{fontSize: '13px', fontWeight: 600, color: '#c9a84c', margin: 0}}>Not sure which rights apply to you?</p>
+                  <p style={{fontSize: '12px', color: 'rgba(245,240,232,0.5)', margin: 0}}>Switch to Chat Mode — describe your situation and get personalised rights advice</p>
+                </div>
               </div>
-            ))}
+              <span style={{fontSize: '12px', fontWeight: 600, color: '#080808', background: 'linear-gradient(135deg, #c9a84c, #8a6f2e)', padding: '6px 14px', borderRadius: '8px', whiteSpace: 'nowrap'}}>💬 Open Chat →</span>
+            </a>
           </div>
         )}
 
@@ -212,6 +226,18 @@ export default function KnowYourRights() {
                   <ReactMarkdown>{answer}</ReactMarkdown>
                 </div>
                 <div style={{marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--border)', fontSize: '12px', color: 'var(--text-dim)'}}>{L.disclaimer}</div>
+
+                {/* Chat Banner — after answer */}
+                <a href="/chat?from=rights" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05))', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '14px 20px', marginTop: '20px', textDecoration: 'none', color: 'inherit', flexWrap: 'wrap', gap: '10px'}}>
+                  <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                    <span style={{fontSize: '20px'}}>🤖</span>
+                    <div>
+                      <p style={{fontSize: '13px', fontWeight: 600, color: '#c9a84c', margin: 0}}>Have more questions about your rights?</p>
+                      <p style={{fontSize: '12px', color: 'rgba(245,240,232,0.5)', margin: 0}}>Switch to Chat Mode — continue the conversation with full memory</p>
+                    </div>
+                  </div>
+                  <span style={{fontSize: '12px', fontWeight: 600, color: '#080808', background: 'linear-gradient(135deg, #c9a84c, #8a6f2e)', padding: '6px 14px', borderRadius: '8px', whiteSpace: 'nowrap'}}>💬 Open Chat →</span>
+                </a>
               </div>
             )}
           </div>
