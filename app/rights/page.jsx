@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import LanguageToggle from '../components/LanguageToggle';
+import { stripMarkdown, printMarkdown } from '../utils/markdownUtils';
 
 const rightsCategories = {
   english: [
@@ -37,51 +38,9 @@ const rightsCategories = {
 };
 
 const uiLabels = {
-  english: {
-    title: '✊ Know Your Rights',
-    subtitle: 'Every Indian citizen has rights protected by law.',
-    back: '← Back to categories',
-    askTitle: 'Ask AI about your',
-    askPlaceholder: 'Ask a specific question about your',
-    askButton: '🔍 Ask Firm Law AI',
-    askLoading: '⏳ Getting answer...',
-    lookingUp: 'Looking up your rights...',
-    answerTitle: 'Firm Law AI Answer',
-    savePDF: '🖨️ Save PDF',
-    copy: '📋 Copy',
-    copied: '✅ Copied!',
-    disclaimer: '⚠️ This is general legal information only. For your specific situation, please consult a qualified advocate.',
-  },
-  hindi: {
-    title: '✊ अपने अधिकार जानें',
-    subtitle: 'हर भारतीय नागरिक के अधिकार कानून द्वारा संरक्षित हैं।',
-    back: '← श्रेणियों पर वापस जाएं',
-    askTitle: 'AI से पूछें अपने',
-    askPlaceholder: 'अपने अधिकारों के बारे में कोई सवाल पूछें',
-    askButton: '🔍 Firm Law AI से पूछें',
-    askLoading: '⏳ जवाब मिल रहा है...',
-    lookingUp: 'आपके अधिकार खोजे जा रहे हैं...',
-    answerTitle: 'Firm Law AI का जवाब',
-    savePDF: '🖨️ PDF सेव करें',
-    copy: '📋 कॉपी करें',
-    copied: '✅ कॉपी हो गया!',
-    disclaimer: '⚠️ यह केवल सामान्य कानूनी जानकारी है। अपनी विशेष स्थिति के लिए किसी वकील से सलाह लें।',
-  },
-  telugu: {
-    title: '✊ మీ హక్కులు తెలుసుకోండి',
-    subtitle: 'ప్రతి భారతీయ పౌరునికి చట్టం ద్వారా రక్షించబడిన హక్కులు ఉన్నాయి.',
-    back: '← వర్గాలకు తిరిగి వెళ్ళండి',
-    askTitle: 'AI ని అడగండి మీ',
-    askPlaceholder: 'మీ హక్కుల గురించి ప్రశ్న అడగండి',
-    askButton: '🔍 Firm Law AI అడగండి',
-    askLoading: '⏳ సమాధానం వస్తోంది...',
-    lookingUp: 'మీ హక్కులు వెతుకుతున్నాం...',
-    answerTitle: 'Firm Law AI సమాధానం',
-    savePDF: '🖨️ PDF సేవ్ చేయండి',
-    copy: '📋 కాపీ చేయండి',
-    copied: '✅ కాపీ అయింది!',
-    disclaimer: '⚠️ ఇది సాధారణ చట్టపరమైన సమాచారం మాత్రమే. మీ నిర్దిష్ట పరిస్థితి కోసం అర్హత కలిగిన న్యాయవాదిని సంప్రదించండి.',
-  },
+  english: { title: '✊ Know Your Rights', subtitle: 'Every Indian citizen has rights protected by law.', back: '← Back to categories', askTitle: 'Ask AI about your', askPlaceholder: 'Ask a specific question about your', askButton: '🔍 Ask Firm Law AI', askLoading: '⏳ Getting answer...', lookingUp: 'Looking up your rights...', answerTitle: 'Firm Law AI Answer', savePDF: '🖨️ Save PDF', copy: '📋 Copy', copied: '✅ Copied!', disclaimer: '⚠️ This is general legal information only. For your specific situation, please consult a qualified advocate.' },
+  hindi: { title: '✊ अपने अधिकार जानें', subtitle: 'हर भारतीय नागरिक के अधिकार कानून द्वारा संरक्षित हैं।', back: '← श्रेणियों पर वापस जाएं', askTitle: 'AI से पूछें अपने', askPlaceholder: 'अपने अधिकारों के बारे में कोई सवाल पूछें', askButton: '🔍 Firm Law AI से पूछें', askLoading: '⏳ जवाब मिल रहा है...', lookingUp: 'आपके अधिकार खोजे जा रहे हैं...', answerTitle: 'Firm Law AI का जवाब', savePDF: '🖨️ PDF सेव करें', copy: '📋 कॉपी करें', copied: '✅ कॉपी हो गया!', disclaimer: '⚠️ यह केवल सामान्य कानूनी जानकारी है। अपनी विशेष स्थिति के लिए किसी वकील से सलाह लें।' },
+  telugu: { title: '✊ మీ హక్కులు తెలుసుకోండి', subtitle: 'ప్రతి భారతీయ పౌరునికి చట్టం ద్వారా రక్షించబడిన హక్కులు ఉన్నాయి.', back: '← వర్గాలకు తిరిగి వెళ్ళండి', askTitle: 'AI ని అడగండి మీ', askPlaceholder: 'మీ హక్కుల గురించి ప్రశ్న అడగండి', askButton: '🔍 Firm Law AI అడగండి', askLoading: '⏳ సమాధానం వస్తోంది...', lookingUp: 'మీ హక్కులు వెతుకుతున్నాం...', answerTitle: 'Firm Law AI సమాధానం', savePDF: '🖨️ PDF సేవ్ చేయండి', copy: '📋 కాపీ చేయండి', copied: '✅ కాపీ అయింది!', disclaimer: '⚠️ ఇది సాధారణ చట్టపరమైన సమాచారం మాత్రమే. మీ నిర్దిష్ట పరిస్థితి కోసం అర్హత కలిగిన న్యాయవాదిని సంప్రదించండి.' },
 };
 
 const markdownStyles = `
@@ -142,42 +101,19 @@ export default function KnowYourRights() {
   }
 
   function copyAnswer() {
-    navigator.clipboard.writeText(answer);
+    const clean = stripMarkdown(answer);
+    navigator.clipboard.writeText(clean);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
 
   function printAnswer() {
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>${selected.title} — Firm Law AI</title>
-          <style>
-            body { font-family: 'Times New Roman', serif; font-size: 14px; line-height: 1.8; margin: 40px; color: #000; }
-            h1 { font-size: 20px; text-align: center; margin-bottom: 4px; }
-            .subtitle { text-align: center; font-size: 12px; color: #555; margin-bottom: 32px; }
-            h2 { font-size: 16px; margin-top: 20px; }
-            .footer { margin-top: 40px; font-size: 11px; color: #888; border-top: 1px solid #ccc; padding-top: 12px; text-align: center; }
-            @media print { .no-print { display: none; } }
-          </style>
-        </head>
-        <body>
-          <h1>${selected.title}</h1>
-          <div class="subtitle">Generated by Firm Law AI — ${new Date().toLocaleDateString('en-IN', {day: 'numeric', month: 'long', year: 'numeric'})}</div>
-          <p><strong>Question:</strong> ${question}</p>
-          <hr/>
-          <div>${answer}</div>
-          <div class="footer">This answer was AI-generated by Firm Law AI. This is general legal information only. Please consult a qualified advocate.</div>
-          <div class="no-print" style="margin-top:20px; text-align:center;">
-            <button onclick="window.print()" style="padding:10px 24px; background:#c9a84c; border:none; border-radius:6px; font-size:14px; cursor:pointer; font-weight:600;">🖨️ Print / Save as PDF</button>
-          </div>
-        </body>
-      </html>
-    `);
-    printWindow.document.close();
-    printWindow.focus();
+    printMarkdown(
+      selected.title,
+      `Question: ${question}`,
+      answer,
+      'This answer was AI-generated by Firm Law AI. This is general legal information only. Please consult a qualified advocate.'
+    );
   }
 
   return (
